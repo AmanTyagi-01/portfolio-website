@@ -1,11 +1,7 @@
-/* ============================================
-   AMAN PORTFOLIO — script.js
-   Vanilla JS — no frameworks
-   ============================================ */
+
 
 'use strict';
 
-// ── LOADING SCREEN ─────────────────────────
 const loadingScreen = document.getElementById('loading-screen');
 if (loadingScreen) {
   window.addEventListener('load', () => {
@@ -13,7 +9,6 @@ if (loadingScreen) {
   });
 }
 
-// ── CURSOR GLOW ────────────────────────────
 const cursorGlow = document.getElementById('cursor-glow');
 if (cursorGlow) {
   let curX = 0, curY = 0, rafId;
@@ -31,7 +26,6 @@ if (cursorGlow) {
   document.addEventListener('mouseenter', () => cursorGlow.style.opacity = '1');
 }
 
-// ── NAV SCROLL STATE ──────────────────────
 const nav = document.querySelector('.nav');
 if (nav) {
   const onScroll = () => {
@@ -41,7 +35,6 @@ if (nav) {
   onScroll();
 }
 
-// ── MOBILE NAV ────────────────────────────
 const navToggle = document.querySelector('.nav-toggle');
 const navMobile = document.querySelector('.nav-mobile');
 if (navToggle && navMobile) {
@@ -61,7 +54,6 @@ if (navToggle && navMobile) {
   });
 }
 
-// ── REVEAL ON SCROLL ──────────────────────
 const revealEls = document.querySelectorAll('.reveal');
 if (revealEls.length) {
   const revealObserver = new IntersectionObserver((entries) => {
@@ -75,7 +67,6 @@ if (revealEls.length) {
   revealEls.forEach(el => revealObserver.observe(el));
 }
 
-// ── SKILL BAR ANIMATION ───────────────────
 const skillBars = document.querySelectorAll('.skill-bar');
 if (skillBars.length) {
   const barObserver = new IntersectionObserver((entries) => {
@@ -90,7 +81,6 @@ if (skillBars.length) {
   skillBars.forEach(bar => barObserver.observe(bar));
 }
 
-// ── COUNTER ANIMATION ─────────────────────
 const counters = document.querySelectorAll('.achievement-counter');
 if (counters.length) {
   const easeOut = t => 1 - Math.pow(1 - t, 3);
@@ -120,7 +110,6 @@ if (counters.length) {
   counters.forEach(c => counterObserver.observe(c));
 }
 
-// ── CARD 3D TILT ──────────────────────────
 document.querySelectorAll('[data-tilt]').forEach(card => {
   card.addEventListener('mousemove', (e) => {
     const rect = card.getBoundingClientRect();
@@ -138,7 +127,6 @@ document.querySelectorAll('[data-tilt]').forEach(card => {
   });
 });
 
-// ── TYPEWRITER ────────────────────────────
 const typewriterEl = document.getElementById('typewriter');
 if (typewriterEl) {
   const phrases = typewriterEl.dataset.phrases.split('|');
@@ -168,7 +156,6 @@ if (typewriterEl) {
   type();
 }
 
-// ── HERO CANVAS PARTICLES ─────────────────
 const canvas = document.getElementById('hero-canvas');
 if (canvas) {
   const ctx = canvas.getContext('2d');
@@ -207,7 +194,6 @@ if (canvas) {
   const N = Math.min(120, Math.floor((W * H) / 8000));
   for (let i = 0; i < N; i++) particles.push(new Particle());
 
-  // Connection lines
   const drawLines = () => {
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
@@ -235,7 +221,6 @@ if (canvas) {
   animate();
 }
 
-// ── PROJECT FILTER ────────────────────────
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 if (filterBtns.length) {
@@ -253,7 +238,6 @@ if (filterBtns.length) {
   });
 }
 
-// ── FAQ ACCORDION ─────────────────────────
 document.querySelectorAll('.faq-item').forEach(item => {
   const btn = item.querySelector('.faq-question');
   if (btn) {
@@ -267,12 +251,10 @@ document.querySelectorAll('.faq-item').forEach(item => {
   }
 });
 
-// ── CONTACT FORM ──────────────────────────
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   const statusEl = document.getElementById('form-status');
 
-  // Real-time validation
   contactForm.querySelectorAll('.form-input').forEach(input => {
     input.addEventListener('blur', () => {
       if (input.value.trim() && input.checkValidity()) {
@@ -289,7 +271,6 @@ if (contactForm) {
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // Simulate async send
     await new Promise(r => setTimeout(r, 1500));
 
     statusEl.className = 'form-status success';
@@ -302,7 +283,6 @@ if (contactForm) {
   });
 }
 
-// ── SMOOTH ANCHOR SCROLL ─────────────────
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));
@@ -313,7 +293,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ── RIPPLE EFFECT ─────────────────────────
 document.querySelectorAll('.btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     const rect = btn.getBoundingClientRect();
@@ -332,7 +311,6 @@ document.querySelectorAll('.btn').forEach(btn => {
   });
 });
 
-// Ripple keyframe injection
 const style = document.createElement('style');
 style.textContent = `@keyframes ripple{to{width:200px;height:200px;opacity:0;}}`;
 document.head.appendChild(style);
