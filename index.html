@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  
-  <title>Aman — Full-Stack Developer & AI Engineer</title>
+  <!-- Primary Meta -->
+  <title>Aman — Full-Stack Developer &amp; AI Engineer</title>
   <meta name="description" content="Aman is a full-stack developer and AI engineer building intelligent, production-ready web applications. Explore projects, skills, and experience." />
   <meta name="author" content="Aman" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#03040a" />
 
-  
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aman.dev/" />
-  <meta property="og:title" content="Aman — Full-Stack Developer & AI Engineer" />
+  <meta property="og:title" content="Aman — Full-Stack Developer &amp; AI Engineer" />
   <meta property="og:description" content="Building intelligent, production-ready web applications at the intersection of design and engineering." />
   <meta property="og:image" content="https://aman.dev/og-image.png" />
 
-  
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@aman_dev" />
-  <meta name="twitter:title" content="Aman — Full-Stack Developer & AI Engineer" />
+  <meta name="twitter:title" content="Aman — Full-Stack Developer &amp; AI Engineer" />
   <meta name="twitter:description" content="Building intelligent, production-ready web applications." />
   <meta name="twitter:image" content="https://aman.dev/og-image.png" />
 
-  
+  <!-- Canonical -->
   <link rel="canonical" href="https://aman.dev/" />
 
-  
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -49,36 +49,45 @@
   }
   </script>
 
-  
+  <!-- Theme init: apply before render to avoid flash -->
+  <script>
+    (function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  
+  <!-- Scroll progress indicator -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Skip Navigation -->
   <a href="#main-content" class="skip-nav">Skip to main content</a>
 
-  
+  <!-- Loading Screen -->
   <div id="loading-screen" role="status" aria-label="Loading portfolio">
     <div class="loader-ring" aria-hidden="true"></div>
     <p class="loader-text">Initializing</p>
+    <div class="loader-bar" aria-hidden="true"><div class="loader-bar-fill"></div></div>
   </div>
 
-  
+  <!-- Cursor Glow -->
   <div id="cursor-glow" aria-hidden="true"></div>
 
-  
+  <!-- Aurora Background -->
   <div class="aurora-bg" aria-hidden="true">
     <div class="aurora-orb aurora-orb-1"></div>
     <div class="aurora-orb aurora-orb-2"></div>
     <div class="aurora-orb aurora-orb-3"></div>
+    <div class="aurora-orb aurora-orb-4"></div>
   </div>
   <div class="grid-overlay" aria-hidden="true"></div>
 
-  
+  <!-- Navigation -->
   <header role="banner">
     <nav class="nav" aria-label="Primary navigation">
       <a href="index.html" class="nav-brand" aria-label="Aman — Home">
@@ -86,7 +95,7 @@
         Aman
       </a>
 
-      
+      <!-- Desktop Links -->
       <ul class="nav-links" role="list">
         <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
         <li><a href="about.html" class="nav-link">About</a></li>
@@ -94,17 +103,21 @@
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
 
-      <a href="contact.html" class="nav-cta" aria-label="Hire Aman — open contact page">Hire Me</a>
-
-      
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-      </button>
+      <!-- Nav right group: theme + cta + hamburger -->
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Switch to light mode" title="Toggle dark/light mode">
+          <span class="theme-toggle-thumb" aria-hidden="true">🌙</span>
+        </button>
+        <a href="contact.html" class="nav-cta" aria-label="Hire Aman — open contact page">Hire Me</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
     </nav>
 
-    
+    <!-- Mobile Nav Overlay -->
     <nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation">
       <ul role="list">
         <li><a href="index.html" class="nav-link" aria-current="page">Home</a></li>
@@ -118,13 +131,13 @@
 
   <main id="main-content">
 
-    
+    <!-- ══ HERO ══════════════════════════════════════════════ -->
     <section class="hero" aria-label="Hero introduction">
       <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
 
-      
+      <!-- Floating 3D Shapes -->
       <div class="floating-shapes" aria-hidden="true">
-        
+        <!-- Cube wireframe -->
         <div class="shape shape-1">
           <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="10" y="10" width="40" height="40" stroke="rgba(0,212,255,0.4)" stroke-width="1.5" fill="none"/>
@@ -135,27 +148,27 @@
             <line x1="50" y1="50" x2="70" y2="70" stroke="rgba(0,212,255,0.25)" stroke-width="1"/>
           </svg>
         </div>
-        
+        <!-- Hexagon -->
         <div class="shape shape-2">
           <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="30,4 52,17 52,43 30,56 8,43 8,17" stroke="rgba(6,255,165,0.4)" stroke-width="1.5" fill="rgba(6,255,165,0.04)"/>
             <polygon points="30,14 44,22 44,38 30,46 16,38 16,22" stroke="rgba(6,255,165,0.2)" stroke-width="1" fill="none"/>
           </svg>
         </div>
-        
+        <!-- Triangle -->
         <div class="shape shape-3">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="20,4 36,34 4,34" stroke="rgba(124,58,237,0.5)" stroke-width="1.5" fill="rgba(124,58,237,0.05)"/>
           </svg>
         </div>
-        
+        <!-- Octagon -->
         <div class="shape shape-4">
           <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="35,8 65,8 92,35 92,65 65,92 35,92 8,65 8,35" stroke="rgba(0,212,255,0.3)" stroke-width="1.5" fill="rgba(0,212,255,0.03)"/>
             <circle cx="50" cy="50" r="20" stroke="rgba(0,212,255,0.2)" stroke-width="1" fill="none" stroke-dasharray="4 4"/>
           </svg>
         </div>
-        
+        <!-- Diamond -->
         <div class="shape shape-5">
           <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
             <polygon points="25,4 46,25 25,46 4,25" stroke="rgba(167,139,250,0.45)" stroke-width="1.5" fill="rgba(167,139,250,0.05)"/>
@@ -164,33 +177,33 @@
       </div>
 
       <div class="hero-content">
-        
+        <!-- Status Badge -->
         <div class="hero-badge" role="text">
           <span class="hero-badge-dot" aria-hidden="true"></span>
           Available for opportunities
         </div>
 
-        
+        <!-- Main Heading -->
         <h1 class="hero-heading">
           <span class="hero-heading-line">Building the</span>
           <span class="hero-heading-line accent">Future of Web</span>
-          <span class="hero-heading-line">with Code & AI</span>
+          <span class="hero-heading-line">with Code &amp; AI</span>
         </h1>
 
-        
+        <!-- Typewriter -->
         <p class="hero-typewriter" aria-live="polite" aria-atomic="true">
           <span id="typewriter"
-            data-phrases="Full-Stack Developer|AI Engineer|Python Specialist|Flask & React Builder|ML Enthusiast"
+            data-phrases="Full-Stack Developer|AI Engineer|Python Specialist|Flask &amp; React Builder|ML Enthusiast"
             aria-label="Full-Stack Developer">Full-Stack Developer</span><span class="typewriter-cursor" aria-hidden="true"></span>
         </p>
 
-        
+        <!-- Subtext -->
         <p class="hero-subtext">
           CS student at Jaipur National University crafting production-grade web apps
           powered by machine learning, modern APIs, and pixel-perfect interfaces.
         </p>
 
-        
+        <!-- CTAs -->
         <div class="hero-actions">
           <a href="projects.html" class="btn btn-primary" aria-label="View my projects">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -206,16 +219,39 @@
             Resume
           </a>
         </div>
+
+        <!-- Stats strip -->
+        <div class="hero-stats" aria-label="Quick stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">10+</span>
+            <span class="hero-stat-label">Projects</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">3+</span>
+            <span class="hero-stat-label">Years Coding</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">8+</span>
+            <span class="hero-stat-label">Technologies</span>
+          </div>
+          <div class="hero-stat-divider" aria-hidden="true"></div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">10k+</span>
+            <span class="hero-stat-label">Lines of Code</span>
+          </div>
+        </div>
       </div>
 
-      
+      <!-- Scroll Indicator -->
       <a href="#skills-preview" class="hero-scroll" aria-label="Scroll to explore">
         <span aria-hidden="true">scroll</span>
         <div class="scroll-line" aria-hidden="true"></div>
       </a>
     </section>
 
-    
+    <!-- ══ SKILLS PREVIEW ════════════════════════════════════ -->
     <section class="section" id="skills-preview" aria-labelledby="skills-preview-heading">
       <div class="container">
         <p class="section-label" aria-hidden="true">Tech Stack</p>
@@ -226,46 +262,51 @@
           From intelligent backends to polished frontends — a curated stack for building what matters.
         </p>
 
-        <div class="skills-grid reveal reveal-delay-2">
-          
-          <article class="skill-card glass-card" aria-label="Python skill">
+        <div class="skills-grid" data-stagger="80">
+          <article class="skill-card glass-card reveal reveal-delay-1" aria-label="Python skill">
             <div class="skill-icon" aria-hidden="true">🐍</div>
             <h3 class="skill-name">Python</h3>
+            <span class="skill-pct" aria-hidden="true">92%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="Python proficiency 92%">
               <div class="skill-bar" data-level="92" style="width:0%"></div>
             </div>
           </article>
-          <article class="skill-card glass-card" aria-label="Flask skill">
+          <article class="skill-card glass-card reveal reveal-delay-2" aria-label="Flask skill">
             <div class="skill-icon" aria-hidden="true">⚗️</div>
             <h3 class="skill-name">Flask</h3>
+            <span class="skill-pct" aria-hidden="true">88%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Flask proficiency 88%">
               <div class="skill-bar" data-level="88" style="width:0%"></div>
             </div>
           </article>
-          <article class="skill-card glass-card" aria-label="JavaScript skill">
+          <article class="skill-card glass-card reveal reveal-delay-3" aria-label="JavaScript skill">
             <div class="skill-icon" aria-hidden="true">⚡</div>
             <h3 class="skill-name">JavaScript</h3>
+            <span class="skill-pct" aria-hidden="true">85%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="JavaScript proficiency 85%">
               <div class="skill-bar" data-level="85" style="width:0%"></div>
             </div>
           </article>
-          <article class="skill-card glass-card" aria-label="React skill">
+          <article class="skill-card glass-card reveal reveal-delay-4" aria-label="React skill">
             <div class="skill-icon" aria-hidden="true">⚛️</div>
             <h3 class="skill-name">React</h3>
+            <span class="skill-pct" aria-hidden="true">80%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="React proficiency 80%">
               <div class="skill-bar" data-level="80" style="width:0%"></div>
             </div>
           </article>
-          <article class="skill-card glass-card" aria-label="Machine Learning skill">
+          <article class="skill-card glass-card reveal reveal-delay-5" aria-label="Machine Learning skill">
             <div class="skill-icon" aria-hidden="true">🤖</div>
             <h3 class="skill-name">ML / AI</h3>
+            <span class="skill-pct" aria-hidden="true">78%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" aria-label="Machine Learning proficiency 78%">
               <div class="skill-bar" data-level="78" style="width:0%"></div>
             </div>
           </article>
-          <article class="skill-card glass-card" aria-label="SQL / SQLite skill">
+          <article class="skill-card glass-card reveal reveal-delay-5" aria-label="SQL / SQLite skill">
             <div class="skill-icon" aria-hidden="true">🗄️</div>
             <h3 class="skill-name">SQL</h3>
+            <span class="skill-pct" aria-hidden="true">82%</span>
             <div class="skill-bar-wrap" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="SQL proficiency 82%">
               <div class="skill-bar" data-level="82" style="width:0%"></div>
             </div>
@@ -278,7 +319,7 @@
       </div>
     </section>
 
-    
+    <!-- ══ FEATURED PROJECTS ══════════════════════════════════ -->
     <section class="section" id="featured-projects" aria-labelledby="featured-heading">
       <div class="container">
         <p class="section-label" aria-hidden="true">Selected Work</p>
@@ -290,8 +331,8 @@
         </p>
 
         <div class="projects-grid">
-          
-          <article class="project-card glass-card reveal reveal-delay-1" data-tilt data-category="ai" aria-label="AI Resume Analyzer project">
+          <!-- Project 1 -->
+          <article class="project-card glass-card reveal-left reveal-delay-1" data-tilt data-category="ai" aria-label="AI Resume Analyzer project">
             <div class="project-card-visual">
               <div class="project-card-pattern" style="background-image:radial-gradient(rgba(0,212,255,0.2) 1px,transparent 1px);background-size:24px 24px;"></div>
               <div class="project-emoji" aria-hidden="true">📄</div>
@@ -326,7 +367,7 @@
             </div>
           </article>
 
-          
+          <!-- Project 2 -->
           <article class="project-card glass-card reveal reveal-delay-2" data-tilt data-category="web" aria-label="Student Portal project">
             <div class="project-card-visual">
               <div class="project-card-pattern" style="background-image:linear-gradient(rgba(124,58,237,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.15) 1px,transparent 1px);background-size:30px 30px;"></div>
@@ -362,8 +403,8 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-3" data-tilt data-category="ai" aria-label="Smart Notes App project">
+          <!-- Project 3 -->
+          <article class="project-card glass-card reveal-right reveal-delay-3" data-tilt data-category="ai" aria-label="Smart Notes App project">
             <div class="project-card-visual">
               <div class="project-card-pattern" style="background-image:radial-gradient(rgba(6,255,165,0.15) 2px,transparent 2px);background-size:32px 32px;"></div>
               <div class="project-emoji" aria-hidden="true">🧠</div>
@@ -404,7 +445,7 @@
       </div>
     </section>
 
-    
+    <!-- ══ ACHIEVEMENTS ══════════════════════════════════════ -->
     <section class="section" id="achievements" aria-labelledby="achievements-heading">
       <div class="container">
         <p class="section-label" aria-hidden="true">By the numbers</p>
@@ -412,23 +453,23 @@
           Milestones that<br /><span class="gradient-text">define the journey</span>
         </h2>
 
-        <div class="achievements-grid">
-          <article class="achievement-card glass-card reveal reveal-delay-1" aria-label="10+ projects completed">
+        <div class="achievements-grid" data-stagger="80">
+          <article class="achievement-card glass-card reveal-scale reveal-delay-1" aria-label="10+ projects completed">
             <div class="achievement-icon" aria-hidden="true">🚀</div>
             <div class="achievement-counter" data-target="10" data-suffix="+" aria-live="polite">0+</div>
             <p class="achievement-label">Projects Shipped</p>
           </article>
-          <article class="achievement-card glass-card reveal reveal-delay-2" aria-label="3 plus years of coding experience">
+          <article class="achievement-card glass-card reveal-scale reveal-delay-2" aria-label="3 plus years of coding experience">
             <div class="achievement-icon" aria-hidden="true">💻</div>
             <div class="achievement-counter" data-target="3" data-suffix="+" aria-live="polite">0+</div>
             <p class="achievement-label">Years Coding</p>
           </article>
-          <article class="achievement-card glass-card reveal reveal-delay-3" aria-label="8 plus technologies mastered">
+          <article class="achievement-card glass-card reveal-scale reveal-delay-3" aria-label="8 plus technologies mastered">
             <div class="achievement-icon" aria-hidden="true">⚡</div>
             <div class="achievement-counter" data-target="8" data-suffix="+" aria-live="polite">0+</div>
             <p class="achievement-label">Technologies</p>
           </article>
-          <article class="achievement-card glass-card reveal reveal-delay-4" aria-label="1000 plus lines of code written">
+          <article class="achievement-card glass-card reveal-scale reveal-delay-4" aria-label="10k plus lines of code written">
             <div class="achievement-icon" aria-hidden="true">📦</div>
             <div class="achievement-counter" data-target="10" data-suffix="k+" aria-live="polite">0k+</div>
             <p class="achievement-label">Lines of Code</p>
@@ -437,22 +478,21 @@
       </div>
     </section>
 
-    
+    <!-- ══ CTA BAND ══════════════════════════════════════════ -->
     <section class="section" aria-label="Call to action — contact invitation" style="padding-top:0;">
       <div class="container">
-        <div class="glass-card reveal" style="padding:3rem;text-align:center;background:linear-gradient(135deg,rgba(0,212,255,0.06),rgba(124,58,237,0.06));border-color:rgba(0,212,255,0.15);position:relative;overflow:hidden;">
-          <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(0,212,255,0.08),transparent);pointer-events:none;"></div>
-          <p style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;">Open to work</p>
-          <h2 style="font-family:var(--font-display);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;">Got a project in mind?<br /><span class="gradient-text">Let's build it together.</span></h2>
-          <p style="color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-size:1.05rem;">Whether it's a startup MVP, an AI-powered tool, or a full-stack platform — I'm ready to ship.</p>
-          <a href="contact.html" class="btn btn-primary" style="font-size:1rem;">Start a conversation →</a>
+        <div class="glass-card cta-band reveal">
+          <p style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem;position:relative;z-index:1;">Open to work</p>
+          <h2 style="font-family:var(--font-display);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:800;letter-spacing:-0.03em;margin-bottom:1rem;position:relative;z-index:1;">Got a project in mind?<br /><span class="gradient-text">Let's build it together.</span></h2>
+          <p style="color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-size:1.05rem;position:relative;z-index:1;">Whether it's a startup MVP, an AI-powered tool, or a full-stack platform — I'm ready to ship.</p>
+          <a href="contact.html" class="btn btn-primary" style="font-size:1rem;position:relative;z-index:1;">Start a conversation →</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  
+  <!-- Footer -->
   <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
@@ -502,6 +542,7 @@
         <div class="footer-badges" aria-label="Site attributes">
           <span class="footer-badge">WCAG 2.1</span>
           <span class="footer-badge">Semantic HTML5</span>
+          <span class="footer-badge">Dark/Light</span>
         </div>
       </div>
     </div>

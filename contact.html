@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,7 +16,6 @@
   <meta property="og:title" content="Contact Aman — Let's build something together" />
   <meta property="og:description" content="Available for internships, freelance work, and full-time opportunities." />
   <meta property="og:image" content="https://aman.dev/og-image.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Aman" />
   <meta name="twitter:description" content="Available for internships, freelance, and full-time opportunities." />
@@ -39,6 +38,10 @@
   }
   </script>
 
+  <script>
+    (function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -46,13 +49,19 @@
 </head>
 <body>
 
+  <div id="scroll-progress" aria-hidden="true"></div>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
-  <div id="loading-screen" role="status" aria-label="Loading"><div class="loader-ring" aria-hidden="true"></div><p class="loader-text">Loading</p></div>
+  <div id="loading-screen" role="status" aria-label="Loading">
+    <div class="loader-ring" aria-hidden="true"></div>
+    <p class="loader-text">Loading</p>
+    <div class="loader-bar" aria-hidden="true"><div class="loader-bar-fill"></div></div>
+  </div>
   <div id="cursor-glow" aria-hidden="true"></div>
   <div class="aurora-bg" aria-hidden="true">
     <div class="aurora-orb aurora-orb-1"></div>
     <div class="aurora-orb aurora-orb-2"></div>
     <div class="aurora-orb aurora-orb-3"></div>
+    <div class="aurora-orb aurora-orb-4"></div>
   </div>
   <div class="grid-overlay" aria-hidden="true"></div>
 
@@ -67,12 +76,17 @@
         <li><a href="projects.html" class="nav-link">Projects</a></li>
         <li><a href="contact.html" class="nav-link" aria-current="page">Contact</a></li>
       </ul>
-      <a href="contact.html" class="nav-cta" aria-current="page">Hire Me</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-      </button>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Switch to light mode" title="Toggle dark/light mode">
+          <span class="theme-toggle-thumb" aria-hidden="true">🌙</span>
+        </button>
+        <a href="contact.html" class="nav-cta" aria-current="page">Hire Me</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
     </nav>
     <nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation">
       <ul role="list">
@@ -86,34 +100,37 @@
 
   <main id="main-content">
 
-    
+    <!-- Page Header -->
     <section class="contact-hero" aria-label="Contact page header">
       <div class="container">
         <p class="section-label" aria-hidden="true">Get in touch</p>
         <h1 class="section-heading" style="font-size:clamp(2.5rem,6vw,4.5rem);">
           Let's build something<br /><span class="gradient-text">worth shipping</span>
         </h1>
-        <p style="color:var(--text-secondary);max-width:520px;margin-top:1rem;font-size:1.05rem;">
-          I'm actively looking for internships, freelance projects, and full-time opportunities. If you have something interesting to build — I want to hear about it.
+        <p class="reveal reveal-delay-1" style="color:var(--text-secondary);max-width:520px;margin-top:1rem;font-size:1.05rem;">
+          I'm actively looking for internships, freelance projects, and full-time opportunities.
+          If you have something interesting to build — I want to hear about it.
         </p>
       </div>
     </section>
 
-    
+    <!-- ══ CONTACT GRID ═══════════════════════════════════════ -->
     <section class="section" style="padding-top:0;" aria-labelledby="contact-heading">
       <div class="container">
         <h2 id="contact-heading" class="sr-only">Contact form and information</h2>
         <div class="contact-wrap">
 
-          
-          <aside class="contact-info reveal" aria-label="Contact information">
-            <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;letter-spacing:-0.02em;">
-              Start a conversation
-            </h2>
+          <!-- Info column -->
+          <aside class="contact-info reveal-left" aria-label="Contact information">
+            <h2>Start a conversation</h2>
             <p>Whether it's a quick question or a detailed project brief — my inbox is open. I typically respond within 24 hours.</p>
 
             <nav class="contact-links" aria-label="Contact channels">
-              <a href="mailto:aman@example.com" class="contact-link-item glass-card" style="padding:1rem 1.25rem;" aria-label="Send email to aman@example.com">
+              <!-- Email -->
+              <a href="mailto:aman@example.com"
+                class="contact-link-item glass-card"
+                style="padding:1rem 1.25rem;"
+                aria-label="Send email to aman@example.com">
                 <div class="contact-link-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -126,7 +143,12 @@
                 </div>
               </a>
 
-              <a href="https://linkedin.com/in/aman" target="_blank" rel="noopener noreferrer" class="contact-link-item glass-card" style="padding:1rem 1.25rem;" aria-label="Connect on LinkedIn — opens in new tab">
+              <!-- LinkedIn -->
+              <a href="https://linkedin.com/in/aman"
+                target="_blank" rel="noopener noreferrer"
+                class="contact-link-item glass-card"
+                style="padding:1rem 1.25rem;"
+                aria-label="Connect on LinkedIn — opens in new tab">
                 <div class="contact-link-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -138,7 +160,12 @@
                 </div>
               </a>
 
-              <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="contact-link-item glass-card" style="padding:1rem 1.25rem;" aria-label="View GitHub profile — opens in new tab">
+              <!-- GitHub -->
+              <a href="https://github.com/aman"
+                target="_blank" rel="noopener noreferrer"
+                class="contact-link-item glass-card"
+                style="padding:1rem 1.25rem;"
+                aria-label="View GitHub profile — opens in new tab">
                 <div class="contact-link-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -150,7 +177,10 @@
                 </div>
               </a>
 
-              <div class="contact-link-item glass-card" style="padding:1rem 1.25rem;" aria-label="Location: Jaipur, Rajasthan, India">
+              <!-- Location -->
+              <div class="contact-link-item glass-card"
+                style="padding:1rem 1.25rem;"
+                aria-label="Location: Jaipur, Rajasthan, India">
                 <div class="contact-link-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
@@ -164,27 +194,34 @@
               </div>
             </nav>
 
-            
-            <div class="glass-card reveal reveal-delay-1" style="padding:1.25rem;background:rgba(6,255,165,0.04);border-color:rgba(6,255,165,0.15);" aria-label="Availability status">
+            <!-- Availability badge -->
+            <div class="glass-card reveal reveal-delay-2"
+              style="padding:1.25rem;background:rgba(6,255,165,0.04);border-color:rgba(6,255,165,0.15);"
+              aria-label="Availability status: open to opportunities from June 2026">
               <div style="display:flex;align-items:center;gap:0.75rem;">
-                <div aria-hidden="true" style="width:10px;height:10px;border-radius:50%;background:var(--aurora-c);box-shadow:0 0 10px var(--aurora-c);flex-shrink:0;animation:pulse-dot 2s infinite;"></div>
+                <div aria-hidden="true"
+                  style="width:10px;height:10px;border-radius:50%;background:var(--emerald);box-shadow:0 0 12px var(--emerald);flex-shrink:0;animation:pulse-dot 2s infinite;">
+                </div>
                 <div>
                   <p style="font-weight:600;font-size:0.9rem;color:var(--text-primary);">Available for opportunities</p>
-                  <p style="font-size:0.8rem;color:var(--text-secondary);">Open to internships, freelance & full-time from June 2026</p>
+                  <p style="font-size:0.8rem;color:var(--text-secondary);">Open to internships, freelance &amp; full-time from June 2026</p>
                 </div>
               </div>
             </div>
           </aside>
 
-          
-          <div class="glass-card reveal reveal-delay-1" style="overflow:hidden;">
-            <div style="padding:1.5rem 2rem;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;gap:0.75rem;">
+          <!-- Contact Form -->
+          <div class="glass-card reveal-right reveal-delay-1" style="overflow:hidden;">
+            <!-- Terminal chrome bar -->
+            <div style="padding:1.25rem 2rem;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;gap:0.75rem;">
               <div aria-hidden="true" style="display:flex;gap:0.4rem;">
-                <span style="width:10px;height:10px;border-radius:50%;background:rgba(255,80,80,0.6);display:block;"></span>
-                <span style="width:10px;height:10px;border-radius:50%;background:rgba(255,190,0,0.6);display:block;"></span>
-                <span style="width:10px;height:10px;border-radius:50%;background:rgba(6,255,165,0.6);display:block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:rgba(255,80,80,0.65);display:block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:rgba(255,190,0,0.65);display:block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:rgba(6,255,165,0.65);display:block;"></span>
               </div>
-              <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);letter-spacing:0.05em;">new-message.js</span>
+              <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.06em;">
+                new-message.js
+              </span>
             </div>
 
             <form
@@ -195,7 +232,9 @@
             >
               <div class="form-row">
                 <div class="form-group">
-                  <label for="contact-name" class="form-label">Name <span aria-hidden="true" style="color:var(--cyan);">*</span></label>
+                  <label for="contact-name" class="form-label">
+                    Name <span aria-hidden="true" style="color:var(--cyan);">*</span>
+                  </label>
                   <input
                     type="text"
                     id="contact-name"
@@ -210,7 +249,9 @@
                   <span id="name-hint" class="sr-only">Enter your full name</span>
                 </div>
                 <div class="form-group">
-                  <label for="contact-email" class="form-label">Email <span aria-hidden="true" style="color:var(--cyan);">*</span></label>
+                  <label for="contact-email" class="form-label">
+                    Email <span aria-hidden="true" style="color:var(--cyan);">*</span>
+                  </label>
                   <input
                     type="email"
                     id="contact-email"
@@ -227,7 +268,9 @@
               </div>
 
               <div class="form-group">
-                <label for="contact-subject" class="form-label">Subject <span aria-hidden="true" style="color:var(--cyan);">*</span></label>
+                <label for="contact-subject" class="form-label">
+                  Subject <span aria-hidden="true" style="color:var(--cyan);">*</span>
+                </label>
                 <input
                   type="text"
                   id="contact-subject"
@@ -258,7 +301,9 @@
               </div>
 
               <div class="form-group">
-                <label for="contact-message" class="form-label">Message <span aria-hidden="true" style="color:var(--cyan);">*</span></label>
+                <label for="contact-message" class="form-label">
+                  Message <span aria-hidden="true" style="color:var(--cyan);">*</span>
+                </label>
                 <textarea
                   id="contact-message"
                   name="message"
@@ -272,7 +317,7 @@
                 <span id="message-hint" class="sr-only">Describe your project or inquiry in detail</span>
               </div>
 
-              
+              <!-- Status (shown after submit) -->
               <div
                 id="form-status"
                 class="form-status"
@@ -282,15 +327,20 @@
                 tabindex="-1"
               ></div>
 
-              <button type="submit" class="btn btn-primary form-submit" aria-label="Send message">
+              <button
+                type="submit"
+                class="btn btn-primary form-submit"
+                aria-label="Send message">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  <line x1="22" y1="2" x2="11" y2="13"/>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"/>
                 </svg>
                 Send Message
               </button>
 
-              <p style="font-size:0.78rem;color:var(--text-muted);text-align:center;">
-                Fields marked <span style="color:var(--cyan);">*</span> are required. I'll reply within 24 hours.
+              <p style="font-size:0.76rem;color:var(--text-muted);text-align:center;">
+                Fields marked <span style="color:var(--cyan);">*</span> are required.
+                I'll reply within 24 hours.
               </p>
             </form>
           </div>
@@ -299,7 +349,7 @@
       </div>
     </section>
 
-    
+    <!-- ══ FAQ ═══════════════════════════════════════════════ -->
     <section class="section" style="padding-top:0;" aria-labelledby="faq-heading">
       <div class="container" style="max-width:760px;">
         <p class="section-label" aria-hidden="true">Common questions</p>
@@ -312,7 +362,7 @@
               <span>Are you available for remote work?</span>
               <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="faq-1" class="faq-answer" aria-hidden="true">
+            <div id="faq-1" class="faq-answer" role="region" aria-hidden="true">
               Yes — 100%. I work entirely remotely and am comfortable with async communication across time zones. I'm based in Jaipur, India (IST, UTC+5:30).
             </div>
           </div>
@@ -322,7 +372,7 @@
               <span>What kind of projects do you take on?</span>
               <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="faq-2" class="faq-answer" aria-hidden="true">
+            <div id="faq-2" class="faq-answer" role="region" aria-hidden="true">
               I focus on full-stack web applications, AI/ML integrations, Flask backends with REST APIs, and accessible frontend interfaces. I'm especially excited about products that use machine learning to solve real user problems.
             </div>
           </div>
@@ -332,7 +382,7 @@
               <span>What's your typical turnaround time?</span>
               <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="faq-3" class="faq-answer" aria-hidden="true">
+            <div id="faq-3" class="faq-answer" role="region" aria-hidden="true">
               For a scoped MVP, typically 2–4 weeks. For larger systems, I provide a detailed timeline after the initial discovery call. I prefer to scope clearly before starting rather than rush and compromise quality.
             </div>
           </div>
@@ -342,7 +392,7 @@
               <span>Are you open to internships?</span>
               <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="faq-4" class="faq-answer" aria-hidden="true">
+            <div id="faq-4" class="faq-answer" role="region" aria-hidden="true">
               Absolutely — this is a top priority for me right now. I'm looking for internships in software engineering, full-stack development, or ML engineering starting June 2026. Reach out and let's talk.
             </div>
           </div>
@@ -352,7 +402,7 @@
               <span>Do you work with non-technical founders?</span>
               <svg class="faq-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
             </button>
-            <div id="faq-5" class="faq-answer" aria-hidden="true">
+            <div id="faq-5" class="faq-answer" role="region" aria-hidden="true">
               Yes, and I enjoy it. I'm good at translating business requirements into technical decisions, and I'll always explain trade-offs in plain terms rather than hiding behind jargon. Clear communication is part of the job.
             </div>
           </div>
@@ -405,6 +455,7 @@
         <div class="footer-badges" aria-label="Site attributes">
           <span class="footer-badge">WCAG 2.1</span>
           <span class="footer-badge">Semantic HTML5</span>
+          <span class="footer-badge">Dark/Light</span>
         </div>
       </div>
     </div>

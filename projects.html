@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <title>Projects — Aman | Full-Stack Developer & AI Engineer</title>
+  <title>Projects — Aman | Full-Stack Developer &amp; AI Engineer</title>
   <meta name="description" content="Explore Aman's portfolio of full-stack web applications, AI tools, and developer projects built with Python, Flask, React, and machine learning." />
   <meta name="author" content="Aman" />
   <meta name="robots" content="index, follow" />
@@ -16,7 +16,6 @@
   <meta property="og:title" content="Projects — Aman" />
   <meta property="og:description" content="Full-stack web apps, AI tools, and developer projects." />
   <meta property="og:image" content="https://aman.dev/og-image.png" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Projects — Aman" />
 
@@ -33,6 +32,10 @@
   }
   </script>
 
+  <script>
+    (function(){var t=localStorage.getItem('portfolio-theme')||'dark';document.documentElement.setAttribute('data-theme',t);})();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -40,13 +43,19 @@
 </head>
 <body>
 
+  <div id="scroll-progress" aria-hidden="true"></div>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
-  <div id="loading-screen" role="status" aria-label="Loading"><div class="loader-ring" aria-hidden="true"></div><p class="loader-text">Loading</p></div>
+  <div id="loading-screen" role="status" aria-label="Loading">
+    <div class="loader-ring" aria-hidden="true"></div>
+    <p class="loader-text">Loading</p>
+    <div class="loader-bar" aria-hidden="true"><div class="loader-bar-fill"></div></div>
+  </div>
   <div id="cursor-glow" aria-hidden="true"></div>
   <div class="aurora-bg" aria-hidden="true">
     <div class="aurora-orb aurora-orb-1"></div>
     <div class="aurora-orb aurora-orb-2"></div>
     <div class="aurora-orb aurora-orb-3"></div>
+    <div class="aurora-orb aurora-orb-4"></div>
   </div>
   <div class="grid-overlay" aria-hidden="true"></div>
 
@@ -61,12 +70,17 @@
         <li><a href="projects.html" class="nav-link" aria-current="page">Projects</a></li>
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
-      <a href="contact.html" class="nav-cta">Hire Me</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-        <span class="nav-toggle-bar" aria-hidden="true"></span>
-      </button>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Switch to light mode" title="Toggle dark/light mode">
+          <span class="theme-toggle-thumb" aria-hidden="true">🌙</span>
+        </button>
+        <a href="contact.html" class="nav-cta">Hire Me</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle mobile menu">
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+          <span class="nav-toggle-bar" aria-hidden="true"></span>
+        </button>
+      </div>
     </nav>
     <nav class="nav-mobile" id="mobile-nav" aria-label="Mobile navigation">
       <ul role="list">
@@ -81,7 +95,7 @@
 
   <main id="main-content">
 
-    
+    <!-- Page Header -->
     <header class="page-header" aria-label="Projects page header">
       <div class="page-header-bg" aria-hidden="true"></div>
       <div class="container page-header-content">
@@ -89,40 +103,45 @@
         <h1 class="section-heading" style="font-size:clamp(2.5rem,6vw,4.5rem);">
           Things I've<br /><span class="gradient-text">shipped</span>
         </h1>
-        <p style="color:var(--text-secondary);max-width:520px;margin-top:1rem;font-size:1.05rem;">
+        <p class="reveal reveal-delay-1" style="color:var(--text-secondary);max-width:520px;margin-top:1rem;font-size:1.05rem;">
           Every project here is built to solve a real problem, deployed to the real web, and written with the full-stack craft I care about.
         </p>
       </div>
     </header>
 
-    
+    <!-- ══ PROJECTS GRID ══════════════════════════════════════ -->
     <section class="section" style="padding-top:2rem;" aria-labelledby="projects-heading">
       <div class="container">
         <h2 id="projects-heading" class="sr-only">All Projects</h2>
 
-        
-        <div class="projects-filter" role="group" aria-label="Filter projects by category">
+        <!-- Filter Controls -->
+        <div class="projects-filter reveal" role="group" aria-label="Filter projects by category">
           <button class="filter-btn" data-filter="all" aria-pressed="true">All Projects</button>
           <button class="filter-btn" data-filter="ai" aria-pressed="false">AI / ML</button>
           <button class="filter-btn" data-filter="web" aria-pressed="false">Web Apps</button>
           <button class="filter-btn" data-filter="tool" aria-pressed="false">Dev Tools</button>
         </div>
 
-        
+        <!-- Projects Grid -->
         <div class="projects-grid" id="projects-grid">
 
-          
-          <article class="project-card glass-card reveal reveal-delay-1" data-tilt data-category="ai" aria-label="AI Resume Analyzer — AI and ML project">
+          <!-- 1 — AI Resume Analyzer -->
+          <article class="project-card glass-card reveal-left reveal-delay-1"
+            data-tilt data-category="ai"
+            aria-label="AI Resume Analyzer — AI and ML project">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:radial-gradient(rgba(0,212,255,0.2) 1px,transparent 1px);background-size:24px 24px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:radial-gradient(rgba(0,212,255,0.2) 1px,transparent 1px);background-size:24px 24px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">📄</div>
               <div class="project-overlay" aria-hidden="true">
-                <a href="#project-resume-detail" class="project-overlay-btn primary" tabindex="-1">Details</a>
-                <a href="https://github.com/aman" class="project-overlay-btn" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub ↗</a>
+                <a href="#" class="project-overlay-btn primary" tabindex="-1">Details</a>
+                <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                  class="project-overlay-btn" tabindex="-1">GitHub ↗</a>
               </div>
             </div>
             <div class="project-body">
-              <div class="project-tags" aria-label="Technologies: Flask, NLP, Python, Gemini API, SQLite, PDF">
+              <div class="project-tags" aria-label="Technologies: Flask, NLP, Python, Gemini API, SQLite">
                 <span class="project-tag">Flask</span>
                 <span class="project-tag">NLP</span>
                 <span class="project-tag">Python</span>
@@ -130,11 +149,15 @@
                 <span class="project-tag">SQLite</span>
               </div>
               <h2 class="project-title">AI Resume Analyzer</h2>
-              <p class="project-desc">Full-stack web application using TF-IDF cosine similarity and skill-extraction NLP to match resumes against job descriptions. Features Google Gemini API integration for intelligent AI feedback, SQLite authentication, and PDF parsing with report generation. The most complete project in this portfolio.</p>
+              <p class="project-desc">Full-stack web application using TF-IDF cosine similarity and skill-extraction NLP to match resumes against job descriptions. Features Google Gemini API integration for intelligent AI feedback, SQLite authentication, and PDF parsing with report generation.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true"></span>Live & maintained</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"></span>
+                  Live &amp; maintained
+                </span>
                 <div class="project-links">
-                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="project-icon-btn" aria-label="View AI Resume Analyzer source on GitHub">
+                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                    class="project-icon-btn" aria-label="View AI Resume Analyzer source on GitHub">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   </a>
                   <a href="#" class="project-icon-btn" aria-label="Open live demo of AI Resume Analyzer">
@@ -145,14 +168,19 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-2" data-tilt data-category="web" aria-label="Student Management Portal — web application">
+          <!-- 2 — Student Management Portal -->
+          <article class="project-card glass-card reveal reveal-delay-2"
+            data-tilt data-category="web"
+            aria-label="Student Management Portal — web application">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:linear-gradient(rgba(124,58,237,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.15) 1px,transparent 1px);background-size:30px 30px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:linear-gradient(rgba(124,58,237,0.15) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.15) 1px,transparent 1px);background-size:30px 30px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">🎓</div>
               <div class="project-overlay" aria-hidden="true">
                 <a href="#" class="project-overlay-btn primary" tabindex="-1">Details</a>
-                <a href="https://github.com/aman" class="project-overlay-btn" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub ↗</a>
+                <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                  class="project-overlay-btn" tabindex="-1">GitHub ↗</a>
               </div>
             </div>
             <div class="project-body">
@@ -165,9 +193,13 @@
               <h2 class="project-title">Student Management Portal</h2>
               <p class="project-desc">A comprehensive academic management system with JWT-based authentication, grade tracking, course enrollment, timetable management, and an admin dashboard with analytics. Built mobile-first with a clean, accessible UI.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true"></span>Live</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"></span>
+                  Live
+                </span>
                 <div class="project-links">
-                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="project-icon-btn" aria-label="View Student Portal on GitHub">
+                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                    class="project-icon-btn" aria-label="View Student Portal on GitHub">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   </a>
                   <a href="#" class="project-icon-btn" aria-label="Open live demo of Student Portal">
@@ -178,14 +210,19 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-3" data-tilt data-category="ai" aria-label="Smart Notes AI Summarizer — AI tool">
+          <!-- 3 — Smart Notes AI Summarizer -->
+          <article class="project-card glass-card reveal-right reveal-delay-3"
+            data-tilt data-category="ai"
+            aria-label="Smart Notes AI Summarizer — AI tool">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:radial-gradient(rgba(6,255,165,0.15) 2px,transparent 2px);background-size:32px 32px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:radial-gradient(rgba(6,255,165,0.15) 2px,transparent 2px);background-size:32px 32px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">🧠</div>
               <div class="project-overlay" aria-hidden="true">
                 <a href="#" class="project-overlay-btn primary" tabindex="-1">Details</a>
-                <a href="https://github.com/aman" class="project-overlay-btn" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub ↗</a>
+                <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                  class="project-overlay-btn" tabindex="-1">GitHub ↗</a>
               </div>
             </div>
             <div class="project-body">
@@ -197,9 +234,13 @@
               <h2 class="project-title">Smart Notes — AI Summarizer</h2>
               <p class="project-desc">A browser-based note-taking app that auto-generates summaries and keyword tags using client-side NLP techniques — no backend, no API calls, runs entirely in the browser. Instant, private, offline-capable.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true"></span>Live</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"></span>
+                  Live
+                </span>
                 <div class="project-links">
-                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="project-icon-btn" aria-label="View Smart Notes on GitHub">
+                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                    class="project-icon-btn" aria-label="View Smart Notes on GitHub">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   </a>
                   <a href="#" class="project-icon-btn" aria-label="Open live demo of Smart Notes">
@@ -210,18 +251,23 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-1" data-tilt data-category="tool" aria-label="Python File Manager CLI — developer tool">
+          <!-- 4 — PyVault CLI -->
+          <article class="project-card glass-card reveal-left reveal-delay-1"
+            data-tilt data-category="tool"
+            aria-label="PyVault File Manager CLI — developer tool">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:linear-gradient(45deg,rgba(167,139,250,0.1) 25%,transparent 25%),linear-gradient(-45deg,rgba(167,139,250,0.1) 25%,transparent 25%);background-size:20px 20px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:linear-gradient(45deg,rgba(167,139,250,0.1) 25%,transparent 25%),linear-gradient(-45deg,rgba(167,139,250,0.1) 25%,transparent 25%);background-size:20px 20px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">🗂️</div>
               <div class="project-overlay" aria-hidden="true">
                 <a href="#" class="project-overlay-btn primary" tabindex="-1">Details</a>
-                <a href="https://github.com/aman" class="project-overlay-btn" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub ↗</a>
+                <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                  class="project-overlay-btn" tabindex="-1">GitHub ↗</a>
               </div>
             </div>
             <div class="project-body">
-              <div class="project-tags" aria-label="Technologies: Python, OS module, Click, Rich">
+              <div class="project-tags" aria-label="Technologies: Python, os sys module, CLI, Rich">
                 <span class="project-tag">Python</span>
                 <span class="project-tag">os / sys</span>
                 <span class="project-tag">CLI</span>
@@ -230,9 +276,15 @@
               <h2 class="project-title">PyVault — File Manager CLI</h2>
               <p class="project-desc">A terminal-based file management utility with smart search, duplicate detection, batch rename, and archive operations. Built using Python's standard library modules — os, sys, pathlib — with a rich terminal UI.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true"></span>Open source</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"
+                    style="background:var(--violet-light);box-shadow:0 0 8px var(--violet-light);">
+                  </span>
+                  Open source
+                </span>
                 <div class="project-links">
-                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="project-icon-btn" aria-label="View PyVault on GitHub">
+                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                    class="project-icon-btn" aria-label="View PyVault on GitHub">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   </a>
                 </div>
@@ -240,18 +292,23 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-2" data-tilt data-category="web" aria-label="Expense Tracker web app">
+          <!-- 5 — BudgetLens -->
+          <article class="project-card glass-card reveal reveal-delay-2"
+            data-tilt data-category="web"
+            aria-label="BudgetLens Expense Tracker — web application">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:radial-gradient(rgba(0,212,255,0.12) 1px,transparent 1px);background-size:18px 18px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:radial-gradient(rgba(0,212,255,0.12) 1px,transparent 1px);background-size:18px 18px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">💰</div>
               <div class="project-overlay" aria-hidden="true">
                 <a href="#" class="project-overlay-btn primary" tabindex="-1">Details</a>
-                <a href="https://github.com/aman" class="project-overlay-btn" target="_blank" rel="noopener noreferrer" tabindex="-1">GitHub ↗</a>
+                <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                  class="project-overlay-btn" tabindex="-1">GitHub ↗</a>
               </div>
             </div>
             <div class="project-body">
-              <div class="project-tags" aria-label="Technologies: JavaScript, Chart.js, LocalStorage, CSS">
+              <div class="project-tags" aria-label="Technologies: JavaScript, Chart.js, CSS Grid">
                 <span class="project-tag">JavaScript</span>
                 <span class="project-tag">Chart.js</span>
                 <span class="project-tag">CSS Grid</span>
@@ -259,9 +316,13 @@
               <h2 class="project-title">BudgetLens — Expense Tracker</h2>
               <p class="project-desc">A personal finance tracker with category-based spending analysis, monthly charts, budget goals, and CSV export. All data stored locally — no signup required. Built with vanilla JS and Chart.js.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true"></span>Live</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"></span>
+                  Live
+                </span>
                 <div class="project-links">
-                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="project-icon-btn" aria-label="View BudgetLens on GitHub">
+                  <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+                    class="project-icon-btn" aria-label="View BudgetLens on GitHub">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                   </a>
                   <a href="#" class="project-icon-btn" aria-label="Open live demo of BudgetLens">
@@ -272,10 +333,14 @@
             </div>
           </article>
 
-          
-          <article class="project-card glass-card reveal reveal-delay-3" data-tilt data-category="tool" aria-label="Loops in Python educational presentation">
+          <!-- 6 — Loops in Python Lecture Deck -->
+          <article class="project-card glass-card reveal-right reveal-delay-3"
+            data-tilt data-category="tool"
+            aria-label="Loops in Python educational presentation — educational tool">
             <div class="project-card-visual">
-              <div class="project-card-pattern" style="background-image:linear-gradient(rgba(6,255,165,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(6,255,165,0.1) 1px,transparent 1px);background-size:25px 25px;"></div>
+              <div class="project-card-pattern"
+                style="background-image:linear-gradient(rgba(6,255,165,0.1) 1px,transparent 1px),linear-gradient(90deg,rgba(6,255,165,0.1) 1px,transparent 1px);background-size:25px 25px;">
+              </div>
               <div class="project-emoji" aria-hidden="true">🔄</div>
               <div class="project-overlay" aria-hidden="true">
                 <a href="#" class="project-overlay-btn primary" tabindex="-1">View Slides</a>
@@ -290,30 +355,46 @@
               <h2 class="project-title">Loops in Python — Lecture Deck</h2>
               <p class="project-desc">A comprehensive academic presentation covering for loops, while loops, nested loops, and control statements (break, continue, pass). Created for Jaipur National University coursework, used by peers as study material.</p>
               <div class="project-footer">
-                <span class="project-status"><span class="project-status-dot" aria-hidden="true" style="background:var(--violet-light);box-shadow:0 0 6px var(--violet-light);"></span>Educational</span>
+                <span class="project-status">
+                  <span class="project-status-dot" aria-hidden="true"
+                    style="background:var(--violet-light);box-shadow:0 0 6px var(--violet-light);">
+                  </span>
+                  Educational
+                </span>
                 <div class="project-links">
                   <a href="#" class="project-icon-btn" aria-label="Download Loops presentation">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
                   </a>
                 </div>
               </div>
             </div>
           </article>
 
-        </div>
+        </div><!-- /projects-grid -->
       </div>
     </section>
 
-    
+    <!-- ══ GITHUB CTA ═════════════════════════════════════════ -->
     <section class="section" style="padding-top:0;" aria-label="GitHub call to action">
       <div class="container">
-        <div class="glass-card reveal" style="padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-color:rgba(0,212,255,0.1);">
+        <div class="glass-card reveal"
+          style="padding:2.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;border-color:rgba(0,212,255,0.1);">
           <div>
-            <p style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.5rem;">Open source</p>
-            <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;">More work lives on GitHub</h2>
-            <p style="color:var(--text-secondary);margin-top:0.5rem;font-size:0.9rem;">Experiments, contributions, and work-in-progress projects.</p>
+            <p style="font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.5rem;">
+              Open source
+            </p>
+            <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;">
+              More work lives on GitHub
+            </h2>
+            <p style="color:var(--text-secondary);margin-top:0.5rem;font-size:0.9rem;">
+              Experiments, contributions, and work-in-progress projects.
+            </p>
           </div>
-          <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="View all projects on GitHub — opens in new tab">
+          <a href="https://github.com/aman" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary"
+            aria-label="View all projects on GitHub — opens in new tab">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             GitHub Profile ↗
           </a>
@@ -366,6 +447,7 @@
         <div class="footer-badges">
           <span class="footer-badge">WCAG 2.1</span>
           <span class="footer-badge">Semantic HTML5</span>
+          <span class="footer-badge">Dark/Light</span>
         </div>
       </div>
     </div>
